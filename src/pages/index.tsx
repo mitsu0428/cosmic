@@ -1,7 +1,8 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
+import type { NextPage } from "next";
 
-export default function Home() {
+const Home: NextPage = () => {
   return (
     <div className={styles.container}>
       <Head>
@@ -52,4 +53,6 @@ export default function Home() {
       <footer className={styles.footer}>cosmic theta</footer>
     </div>
   );
-}
+};
+
+export default Home;
