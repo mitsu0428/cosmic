@@ -62,7 +62,6 @@ const BasicContainer = styled.div`
   justify-content: center;
   min-height: 100vh;
   padding: 0 0.5rem;
-  font-size: calc(10px + 2vmin);
   color: #fff;
   background: #282c34;
 `;
@@ -74,8 +73,8 @@ const BasicSubContainer = styled.div`
   flex-direction: column;
   align-items: left;
   justify-content: center;
-  padding: 0 0.5rem;
-  font-size: calc(10px + 2vmin);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   color: #fff;
   background: #282c34;
 `;
@@ -86,7 +85,7 @@ const BasicSubTitle = styled.h2`
   margin-top: 1rem;
   margin-bottom: 1rem;
   line-height: 1.15;
-  text-align: center;
+  text-align: left;
 `;
 
 const BasicText = styled.p`
