@@ -33,13 +33,13 @@ const Header = styled.header`
 `;
 
 const Title = styled.h1`
-  font-size: 2rem;
-  margin-left: 1rem;
+  margin-left: 16px;
+  font-size: 48px;
   @media (max-width: 768px) {
-    font-size: 1.5rem;
+    font-size: 32px;
   }
   @media (max-width: 480px) {
-    font-size: 1rem;
+    font-size: 24px;
   }
 `;
 
@@ -47,12 +47,12 @@ const SnsCOntainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 1rem;
+  margin-left: 16px;
 `;
 
 const Sns = styled.div`
-  margin-left: 1rem;
-  margin-right: 1rem;
+  margin-left: 16px;
+  margin-right: 16px;
 `;
 
 export default CommonHeader;

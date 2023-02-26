@@ -86,7 +86,7 @@ const SubContainer = styled.div`
   height: 100vh;
   width: 100%;
   color: #fff;
-  margin-top: 2rem;
+  margin-top: 16px;
 `;
 
 const SubTitle = styled.h2`
@@ -95,12 +95,12 @@ const SubTitle = styled.h2`
   margin-left: 1rem;
   line-height: 1.5;
   text-align: left;
-  font-size: 1.5rem;
+  font-size: 32px;
   @media (max-width: 768px) {
-    font-size: 1.2rem;
+    font-size: 24px;
   }
   @media (max-width: 480px) {
-    font-size: 1.2rem;
+    font-size: 20px;
   }
 `;
 
@@ -113,15 +113,15 @@ const TextWrapper = styled.div`
 `;
 
 const Text = styled.p`
-  font-size: 1.2rem;
   margin-top: 2rem;
   line-height: 1.5;
   text-indent: 1em;
+  font-size: 24px;
   @media (max-width: 768px) {
-    font-size: 1rem;
+    font-size: 22px;
   }
   @media (max-width: 480px) {
-    font-size: 0.8rem;
+    font-size: 20px;
   }
 `;
 
