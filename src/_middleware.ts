@@ -1,15 +1,19 @@
 import { NextRequest, NextResponse } from "next/server";
 
-export function middleware(req: NextRequest) {
+export const middleware = (req: NextRequest) => {
+  if (process.env.ENABLE_BASIC_AUTH !== "true") {
+    return NextResponse.next();
+  }
+
   const basicAuth = req.headers.get("authorization");
 
   if (basicAuth) {
     const auth = basicAuth.split(" ")[1];
-    const [user, pwd] = Buffer.from(auth, "base64").toString().split(":");
+    const [user, password] = Buffer.from(auth, "base64").toString().split(":");
 
     if (
       user === process.env.BASIC_AUTH_USER &&
-      pwd === process.env.BASIC_AUTH_PASSWORD
+      password === process.env.BASIC_AUTH_PASSWORD
     ) {
       return NextResponse.next();
     }
@@ -21,4 +25,4 @@ export function middleware(req: NextRequest) {
       "WWW-Authenticate": 'Basic realm="Secure Area"',
     },
   });
-}
+};
