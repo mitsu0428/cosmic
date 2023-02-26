@@ -3,10 +3,11 @@ import styled from "styled-components";
 import CommonHeader from "./components/CommonHeader";
 import type { NextPage } from "next";
 import CommonFooter from "./components/CommonFooter";
+import CosmicTheta from "./components/CosmicTheta";
 
 const Home: NextPage = () => {
   return (
-    <BasicContainer>
+    <Container>
       <Head>
         <title>Cosmictheta</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
@@ -14,86 +15,126 @@ const Home: NextPage = () => {
 
       <main>
         <CommonHeader />
-        <BasicSubContainer>
-          <BasicSubTitle>What is "CosmicΘ"?</BasicSubTitle>
-          <BasicText>-Web3 NFT MUSIC LABEL。</BasicText>
-          <BasicText>-様々な風味の真理を旅する銀河。</BasicText>
-          <BasicText>-UPDATE型ALBUM。</BasicText>
-          <BasicText>-人々をより高い次元へと誘うSPOT</BasicText>
-          <BasicText>
-            -CosmicΘ is a record label which exists as a Galaxy that you
-            cantravel various flavor of the Truth.
-          </BasicText>
-        </BasicSubContainer>
+        <Hr />
 
-        <BasicSubContainer>
-          <BasicSubTitle>Our Mission</BasicSubTitle>
-          <BasicText>Underground Music CultureのDX化。</BasicText>
-          <BasicText>
-            (陽の目を浴びにくいが後世に残すべきものの最適化)
-          </BasicText>
-          <BasicText>
-            1000年前の過去 1000年先の未来 そして今現在に残すメッセージ
-          </BasicText>
-        </BasicSubContainer>
+        <CosmicTheta />
 
-        <BasicSubContainer>
-          <BasicSubTitle>Our Vision</BasicSubTitle>
-          <BasicText>
-            過去未来現在、不変の真理・真言を存在として残して次世代に伝え、音楽のちからで人々をより高い次元へと誘う。
-          </BasicText>
-          <BasicText>-みんなでつくる銀河</BasicText>
-          <BasicText>-NFT holderは会議に参加可能</BasicText>
-          <BasicText>たとえば惑星の名前など</BasicText>
-        </BasicSubContainer>
+        <Hr />
+
+        <SubContainer>
+          <SubTitle>What is "CosmicΘ"?</SubTitle>
+          <TextWrapper>
+            <Text>-Web3 NFT MUSIC LABEL。</Text>
+            <Text>-様々な風味の真理を旅する銀河。</Text>
+            <Text>-UPDATE型ALBUM。</Text>
+            <Text>-人々をより高い次元へと誘うSPOT</Text>
+            <Text>
+              -CosmicΘ is a record label which exists as a Galaxy that you
+              cantravel various flavor of the Truth.
+            </Text>
+          </TextWrapper>
+        </SubContainer>
+
+        <Hr />
+
+        <SubContainer>
+          <SubTitle>Our Mission</SubTitle>
+          <TextWrapper>
+            <Text>Underground Music CultureのDX化。</Text>
+            <Text>(陽の目を浴びにくいが後世に残すべきものの最適化)</Text>
+            <Text>
+              1000年前の過去 1000年先の未来 そして今現在に残すメッセージ
+            </Text>
+          </TextWrapper>
+        </SubContainer>
+
+        <Hr />
+
+        <SubContainer>
+          <SubTitle>Our Vision</SubTitle>
+          <TextWrapper>
+            <Text>
+              過去未来現在、不変の真理・真言を存在として残して次世代に伝え、音楽のちからで人々をより高い次元へと誘う。
+            </Text>
+            <Text>-みんなでつくる銀河</Text>
+            <Text>-NFT holderは会議に参加可能</Text>
+            <Text>たとえば惑星の名前など</Text>
+          </TextWrapper>
+        </SubContainer>
+
+        <Hr />
       </main>
 
       <CommonFooter />
-    </BasicContainer>
+    </Container>
   );
 };
 
 export default Home;
 
-const BasicContainer = styled.div`
+const Container = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  justify-content: left;
   min-height: 100vh;
-  padding: 0 0.5rem;
   color: #fff;
-  background: #282c34;
 `;
 
-const BasicSubContainer = styled.div`
+const SubContainer = styled.div`
   display: flex;
-  height: 100vh;
-  width: 100vw;
   flex-direction: column;
-  align-items: left;
-  justify-content: center;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  height: 100vh;
+  width: 100%;
   color: #fff;
-  background: #282c34;
+  margin-top: 2rem;
 `;
 
-const BasicSubTitle = styled.h2`
+const SubTitle = styled.h2`
+  margin: 0;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  line-height: 1.5;
+  text-align: left;
   font-size: 1.5rem;
-  margin: 0;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  line-height: 1.15;
-  text-align: left;
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+  }
+  @media (max-width: 480px) {
+    font-size: 1.2rem;
+  }
 `;
 
-const BasicText = styled.p`
-  font-size: 1.3rem;
-  margin: 0;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  line-height: 1.15;
-  text-align: left;
-  padding: 0 1rem;
+const TextWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 0 2rem 0 2rem;
+  white-space: pre-wrap;
+  break-word: break-all;
+`;
+
+const Text = styled.p`
+  font-size: 1.2rem;
+  margin-top: 2rem;
+  line-height: 1.5;
+  text-indent: 1em;
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+  @media (max-width: 480px) {
+    font-size: 0.8rem;
+  }
+`;
+
+const Hr = styled.hr`
+  margin-top: 32px;
+  margin-bottom: 32px;
+  border-width: 0 0 1px;
+  border-image: linear-gradient(
+      90deg,
+      hsla(0, 0%, 35%, 0),
+      hsla(0, 0%, 35%, 0.5) 50%,
+      hsla(0, 0%, 35%, 0) 100%
+    )
+    0 0 100%;
+  border-style: solid;
 `;

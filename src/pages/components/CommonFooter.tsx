@@ -1,29 +1,29 @@
 import React from "react";
 import styled from "styled-components";
 
-function CommonFooter() {
+const CommonFooter = () => {
   return (
-    <BasicTitleArea>
-      <BasicTitle>CosmicΘ</BasicTitle>
-    </BasicTitleArea>
+    <Footer>
+      <Text>© 2023 CosmicΘ</Text>
+    </Footer>
   );
-}
+};
+
+const Footer = styled.footer`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 64px;
+`;
+
+const Text = styled.p`
+  font-size: 1.5rem;
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+  @media (max-width: 480px) {
+    font-size: 0.8rem;
+  }
+`;
 
 export default CommonFooter;
-
-const BasicTitleArea = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-`;
-
-const BasicTitle = styled.h1`
-  font-size: 3rem;
-  margin: 0;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
