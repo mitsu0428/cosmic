@@ -47,10 +47,10 @@ const CommonHeader = () => {
       <PcMenu>
         <MenuList>
           <MenuItem>
-            <Link href="/mint">Mint Page</Link>
+            <Link href="/mint">Mint now!</Link>
           </MenuItem>
           <MenuItem>
-            <Link href="/">journal</Link>
+            <Link href="/">Journal</Link>
           </MenuItem>
         </MenuList>
       </PcMenu>
@@ -75,10 +75,10 @@ const CommonHeader = () => {
         <MobileMenu>
           <MenuList>
             <MenuItem>
-              <Link href="/mint">Mint Page</Link>
+              <Link href="/mint">Mint now!</Link>
             </MenuItem>
             <MenuItem>
-              <Link href="/">journal</Link>
+              <Link href="/">Journal</Link>
             </MenuItem>
           </MenuList>
         </MobileMenu>
@@ -156,7 +156,7 @@ const MobileMenu = styled.div`
 
 const MenuList = styled.ul`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   list-style: none;
@@ -164,10 +164,10 @@ const MenuList = styled.ul`
 `;
 
 const MenuItem = styled.li`
-  margin: 16px;
   font-size: 24px;
   cursor: pointer;
   list-style: none;
+  margin: 16px;
 `;
 
 export default CommonHeader;
