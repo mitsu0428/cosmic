@@ -143,9 +143,10 @@ const PcMenu = styled.div`
 
 const MobileMenu = styled.div`
   display: none;
+  background: #000;
   @media (max-width: 768px) {
     display: block;
-    position: absolute;
+    position: fixed;
     top: 64px;
     right: 0;
     width: 100%;
