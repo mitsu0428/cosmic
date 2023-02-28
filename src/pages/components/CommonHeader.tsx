@@ -1,9 +1,18 @@
 import React from "react";
+import Link from "next/link";
+import Image from "next/image";
 import styled from "styled-components";
-import { FaTwitter, FaInstagram, FaYoutube, FaDiscord } from "react-icons/fa";
+import {
+  FaTwitter,
+  FaInstagram,
+  FaYoutube,
+  FaDiscord,
+  FaBars,
+} from "react-icons/fa";
 
 const CommonHeader = () => {
   const [iconSize, setIconSize] = React.useState(35);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
   React.useEffect(() => {
     const handleResize = () => {
@@ -22,10 +31,30 @@ const CommonHeader = () => {
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen((prev) => !prev);
+  };
+
   return (
     <Header>
-      <Title>Cosmictheta</Title>
-      <SnsCOntainer>
+      <Logo
+        src="/images/cosmic-theta.jpg"
+        alt="cosmic theta"
+        width={iconSize * 2}
+        height={iconSize * 2}
+      />
+      <PcMenu>
+        <MenuList>
+          <MenuItem>
+            <Link href="/mint">Mint Page</Link>
+          </MenuItem>
+          <MenuItem>
+            <Link href="/">journal</Link>
+          </MenuItem>
+        </MenuList>
+      </PcMenu>
+      <SnsContainer>
         <Sns>
           <FaTwitter size={iconSize} color={"#ccc"} />
         </Sns>
@@ -38,7 +67,22 @@ const CommonHeader = () => {
         <Sns>
           <FaDiscord size={iconSize} color={"#ccc"} />
         </Sns>
-      </SnsCOntainer>
+      </SnsContainer>
+      <MobileMenuToggle onClick={toggleMobileMenu}>
+        <FaBars size={32} color={"#ccc"} />
+      </MobileMenuToggle>
+      {isMobileMenuOpen && (
+        <MobileMenu>
+          <MenuList>
+            <MenuItem>
+              <Link href="/mint">Mint Page</Link>
+            </MenuItem>
+            <MenuItem>
+              <Link href="/">journal</Link>
+            </MenuItem>
+          </MenuList>
+        </MobileMenu>
+      )}
     </Header>
   );
 };
@@ -48,21 +92,14 @@ const Header = styled.header`
   justify-content: space-between;
   align-items: center;
   height: 64px;
-  background-color: #000000;
 `;
 
-const Title = styled.h1`
+const Logo = styled(Image)`
+  margin-top: 16px;
   margin-left: 16px;
-  font-size: 48px;
-  @media (max-width: 768px) {
-    font-size: 32px;
-  }
-  @media (max-width: 480px) {
-    font-size: 24px;
-  }
 `;
 
-const SnsCOntainer = styled.div`
+const SnsContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -73,20 +110,63 @@ const SnsCOntainer = styled.div`
 `;
 
 const Sns = styled.div`
+  margin-top: 16px;
   margin-left: 16px;
   margin-right: 16px;
   @media (max-width: 480px) {
     margin-left: 8px;
     margin-right: 8px;
   }
-  svg {
-    width: 35px;
-    height: 35px;
-    @media (max-width: 480px) {
-      width: 25px;
-      height: 25px;
-    }
+`;
+
+const MobileMenuToggle = styled.div`
+  display: none;
+  background: none;
+  @media (max-width: 768px) {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 16px;
+    cursor: pointer;
+    z-index: 100;
   }
+`;
+
+const PcMenu = styled.div`
+  display: flex;
+  margin-top: 16px;
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+const MobileMenu = styled.div`
+  display: none;
+  @media (max-width: 768px) {
+    display: block;
+    position: absolute;
+    top: 64px;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+  }
+`;
+
+const MenuList = styled.ul`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  height: 100%;
+`;
+
+const MenuItem = styled.li`
+  margin: 16px;
+  font-size: 24px;
+  cursor: pointer;
+  list-style: none;
 `;
 
 export default CommonHeader;

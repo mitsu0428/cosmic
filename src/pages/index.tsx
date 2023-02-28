@@ -4,6 +4,7 @@ import CommonHeader from "./components/CommonHeader";
 import type { NextPage } from "next";
 import CommonFooter from "./components/CommonFooter";
 import CosmicTheta from "./components/CosmicTheta";
+import Artist from "./components/Artist";
 
 const Home: NextPage = () => {
   return (
@@ -63,9 +64,10 @@ const Home: NextPage = () => {
         </SubContainer>
 
         <Hr />
-      </main>
 
-      <CommonFooter />
+        <Artist />
+        <CommonFooter />
+      </main>
     </Container>
   );
 };
@@ -73,6 +75,7 @@ const Home: NextPage = () => {
 export default Home;
 
 const Container = styled.div`
+  background-color: #000;
   display: flex;
   flex-direction: column;
   justify-content: left;
